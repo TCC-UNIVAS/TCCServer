@@ -18,7 +18,7 @@ app.get('/', function (req, res) {
     res.send('server is running at ' + server_ip_address + ': ' + server_port);
 });
 
-app.post('addUser', function(req, res){
+app.post('/addUser', function(req, res){
     this.device_tokens.push(req.token);
     console.log(device_tokens);
 });
