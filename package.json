@@ -14,6 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cloud-env": "^0.2.2",
     "express": "^4.14.0",
     "node-gcm": "^0.14.4"
   }

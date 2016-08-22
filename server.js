@@ -1,17 +1,21 @@
 var express = require('express');
 var gcm = require('node-gcm');
+var config = require('cloud-env');
 var app = express();
+
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
 var gcmApiKey = 'AIzaSyDakLMlJip8_loQIUt-XnEq6kq5xQ-gYNk'; // GCM API KEY OF YOUR GOOGLE CONSOLE PROJECT
 var device_tokens = [];
 device_tokens.push("c681jp-GCyU:APA91bHAYfg5pWVKHwKM7iaeaA9epfMwGMxE5LhnukF2SDh3gXNw6AUd1naVOnwvUHChMQQXRGFrsegckFOCiQq0RzUfjOju2Qvh4mqygsU9Q37uGYLmDXbGIoebUfZndcBxC5RTHM0j");
 
-var server = app.listen(3000, function () {
-    console.log('server is just fine!');
+var server = app.listen(server_port, function () {
+    console.log('server is running at ' + server_ip_address + ': ' + server_port);
 });
 
 app.get('/', function (req, res) {
-    res.send("testing!");
+    res.send('server is running at ' + server_ip_address + ': ' + server_port);
 });
 
 app.post('addUser', function(req, res){
