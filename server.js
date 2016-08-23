@@ -10,7 +10,7 @@ var gcmApiKey = 'AIzaSyDakLMlJip8_loQIUt-XnEq6kq5xQ-gYNk'; // GCM API KEY OF YOU
 var device_tokens = [];
 device_tokens.push("c681jp-GCyU:APA91bHAYfg5pWVKHwKM7iaeaA9epfMwGMxE5LhnukF2SDh3gXNw6AUd1naVOnwvUHChMQQXRGFrsegckFOCiQq0RzUfjOju2Qvh4mqygsU9Q37uGYLmDXbGIoebUfZndcBxC5RTHM0j");
 
-var server = app.listen(server_port, function () {
+var server = app.listen(3000, function () {
     console.log('server is running at ' + server_ip_address + ': ' + server_port);
 });
 
