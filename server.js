@@ -23,6 +23,10 @@ app.post('/addUser', function(req, res){
     console.log(device_tokens);
 });
 
+app.get('/getAllUsers', function(req, res){
+    res.send(device_tokens);
+});
+
 
 app.get('/pushToAll', function (req, res) {
     //var device_tokens = []; //create array for storing device tokens
