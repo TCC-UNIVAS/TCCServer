@@ -49,7 +49,8 @@ router.post('/token', function(req, res){
 router.post('/', user_middleware.checkEmail, function(req, res){
          user_service.addUser(req);
          res.status(200).json({
-             massege : "User added"
+             message: "User added",
+             status: 200
          });
     }
 );
