@@ -11,7 +11,7 @@ device_tokens.push("c681jp-GCyU:APA91bHAYfg5pWVKHwKM7iaeaA9epfMwGMxE5LhnukF2SDh3
 
 
 //get all tokens
-router.get('/tokens', function(req, res){
+router.get('/token', function(req, res){
     res.send(device_tokens);
 });
 
@@ -26,8 +26,8 @@ router.get('/', function(req, res){
 // add a user token in a db
 router.post('/token', function(req, res){
     //callback function
-    var sendData = function(affectedRows){
-        if(affectedRows){
+    var sendData = function(confirm){
+        if(confirm){
             res.status(200).json({
                 message: 'token registred with success',
                 status: 200
@@ -41,6 +41,7 @@ router.post('/token', function(req, res){
         }
     }
 
+    console.log(req.body.email +  '  ' + req.body.token);
     user_service.addToken(req.body.email, req.body.token, sendData);
 });
 
