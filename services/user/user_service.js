@@ -31,7 +31,7 @@ var auth = function(email, password, callback){
 //add a token in a user register
 var addToken = function (email, token, callback){
     db.query('update user set user.token = ? where user.email = ?', [token, email], function(err, result){
-        console.log(result);
+        
         if (err)
             throw err;
         if(result.affectedRows)

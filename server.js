@@ -1,6 +1,7 @@
 var express = require('express');
 var config = require('cloud-env');
 var router_user = require('./routes/user');
+var router_mark = require('./routes/mark');
 
 var app = express();
 var router = express.Router();
@@ -27,3 +28,4 @@ app.get('/', function (req, res) {
 });
 
 app.use('/user', router_user);
+app.use('/mark', router_mark);
