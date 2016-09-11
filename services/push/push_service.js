@@ -8,32 +8,23 @@ var device_tokens = [];
 
 //send push message to all devices
 var push = function(lat, lng, user) {
-    db.query('call distance(?,?,?)',[lat,lng,user], function(err, rows){
+    //db.query('call distance(?,?,?)',[lat,lng,user], function(err, rows){
+     db.query('SELECT user.user_id, user.token FROM user  WHERE ((( ACOS( COS( ( 90 - ? ) * PI() / 180 ) * ' + 
+     'COS( ( 90 - user.lat ) * PI() / 180 ) + SIN( ( 90 - ? ) * PI() / 180 ) * SIN( ( 90 - user.lat ) * ' +
+      'PI() / 180 ) * COS( ABS( ( ( 360 + ? ) * PI() / 180 ) - ( ( 360 + user.lng ) * PI() / 180 ) ) ) ) ) * ' + 
+      '6371.004 ) * 1000) < 800 and ? != user.user_id;', [lat, lat, lng, user], function(err, rows){ 
         if (err)
             throw err;        
         
-        console.log(rows[0]);
-        console.log(rows.length);
-        var rowString = JSON.stringify(rows);
-        var rowJson = JSON.parse(rowString);
-        console.log(rowJson + '\n\n');
-        console.log(rowJson.token + '\n\n');
-        console.log(rowJson[0].token + '\n\n');
-        console.log(rowJson[0] + '\n\n');
-        //  for(var i = 0; i < rowJson.length; i++){
-        //          //var row = rowJson[i];
-        //          console.log(rowJson.token );
-        //          device_tokens.push(rowJson.token);
-        // }
-        // for(var i = 0; i < device_tokens.length; i++){
-        //     console.log(device_tokens[i]);
-        // }
+        console.log(rows.length + ' registros retornados');       
+        
+        for(var i = 0; i < rows.length; i++){
+                 //var row = rowJson[i];
+                 console.log(rows[i].token );
+                 device_tokens.push(rows[i].token);
+        }
     });
-
   
-
-
-    /*
     var retry_times = 4; //the number of times to retry sending the message if it fails
     var sender = new gcm.Sender(gcmApiKey); //create a new sender
     var message = new gcm.Message(); //create a new message
@@ -51,11 +42,12 @@ var push = function(lat, lng, user) {
 
     sender.send(message, device_tokens, retry_times, function (result) {
         console.log('push sent to: ' + device_tokens);
-        res.status(200).send('Pushed notification ' + device_tokens);
+        device_tokens = [];
+        
     }, function (err) {
-        res.status(500).send('failed to push notification ');
+        console.log('failed to push notification ');
+        device_tokens= [];
     });
-    */
 };
 
 module.exports.push = push;
