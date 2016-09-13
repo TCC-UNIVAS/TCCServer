@@ -11,13 +11,22 @@ var db = require('../../util/db_conn');
 };
 
 //add a new user
-var addUser = function(req){
+var addUser = function(req, callback){
     var user = req.body;
     db.query('insert into user(name, email, password, lat, lng, sign_date) ' +
-        'values (?, ?, ?, ?, ?, ?)', [user.name, user.email, user.password, user.lat, user.lng, new Date()],function(err, rows, fields) {
-        if (err) throw err;
-        
-        else console.log('inserted!');
+        'values (?, ?, ?, ?, ?, ?)', [user.name, user.email, user.password, user.lat, user.lng, new Date()],function(err, result) {
+        if (err)
+             throw err;        
+        else{
+            var id = result.insertId;
+            db.query('SELECT * FROM user WHERE user.user_id = ?' , [id],function(err, rows) {
+                 if (err)
+                     throw err;        
+                else{
+                    callback(rows[0]);
+                }
+            });
+        } 
     });
 };
 

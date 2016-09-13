@@ -44,11 +44,12 @@ router.post('/token', function(req, res){
 //get a 'user' json with data to insert in db
 //before insert it's necessary verify if the email exists in db, so the middleware is called to check the email
 router.post('/', user_middleware.checkEmail, function(req, res){
-         user_service.addUser(req);
-         res.status(200).json({
-             message: "User added",
-             status: 200
-         });
+        var callback = function(response){
+             res.status(200).send(response);
+         }
+        
+         user_service.addUser(req, callback);
+        
     }
 );
 

@@ -19,6 +19,7 @@ router.post('/', function(req,res){
                 message: 'mark added with success',
                 status: 200
             });
+            //after add a mark, send  a push notification to user that live around to 800 meters the mark 
             push_service.push(req.body.lat, req.body.lng, req.body.user_id);
         }
         else{
@@ -28,10 +29,7 @@ router.post('/', function(req,res){
             });
         }
     };
-    mark_service.addMark(req.body, callback);
-
-    //after add a mark, send  a push notification to user that live around to 800 meters the mark 
-   
+    mark_service.addMark(req.body, callback);   
 });
 
 module.exports = router;

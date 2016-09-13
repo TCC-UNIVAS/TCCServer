@@ -15,7 +15,7 @@ var push = function(lat, lng, user) {
       '6371.004 ) * 1000) < 800 and ? != user.user_id;', [lat, lat, lng, user], function(err, rows){ 
         if (err)
             throw err;        
-        
+                   
         console.log(rows.length + ' registros retornados');       
         
         for(var i = 0; i < rows.length; i++){
