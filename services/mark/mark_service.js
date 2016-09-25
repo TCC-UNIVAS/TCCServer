@@ -9,6 +9,16 @@ var getAll = function(callback){
     });
 };
 
+var getByUserId = function(userId, callback){
+    db.query('select * from cases where user_id = ?', [userId], function(err, rows, fields) {
+           if (err) {
+            throw err;
+           } else {
+            callback(rows);
+           }
+    });
+};
+
 var addMark = function(data, urlImg, callback){
     db.query('insert into cases (user_id, category_id, lat, lng, comments, create_date, image) values(?,?,?,?,?,?,?)',
         [data.user_id, data.category_id, data.lat, data.lng, data.comments, new Date(), urlImg], function(err, result){

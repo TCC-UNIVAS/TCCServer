@@ -11,6 +11,15 @@ cloudinary.config({
   api_secret: '-XJ-XNtAy0CjJIJUXMMg32JZa9s' 
 });
 
+router.get('/user', function(req, res) {
+    var userId = req.query.userId;
+    var callback = function(response) {
+        res.status(200).send(response);
+    };
+    mark_service.getByUserId(userId, callback);
+});
+
+
 router.get('/', function(req, res){
     var callback = function(response){
         res.status(200).send(response);
