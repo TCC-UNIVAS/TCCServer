@@ -18,7 +18,6 @@ router.get('/', function(req, res){
     mark_service.getAll(callback);
 });
 
-
 router.post('/', function(req,res){
     var urlImg;
 
@@ -28,7 +27,7 @@ router.post('/', function(req,res){
                 message: 'mark added with success',
                 status: 200
             });
-            //after add a mark, send  a push notification to user that live around to 800 meters the mark 
+            //after add a mark, send  a push notification to user that live around to 800 meters the mark
             push_service.push(req.body.lat, req.body.lng, req.body.user_id);
         }
         else{
