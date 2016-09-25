@@ -11,10 +11,12 @@ var getAll = function(callback){
 
 var getByUserId = function(userId, callback){
     db.query('select * from cases where user_id ?', [userId], function(err, rows, fields) {
-           if (err)
-                throw err;
-            else
-                callback(rows);
+           if (err) {
+            console.log(':///' + err);
+            throw err;
+           } else {
+            callback(rows);
+           }
     });
 };
 
