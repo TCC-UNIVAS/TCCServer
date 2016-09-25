@@ -1,8 +1,15 @@
 var express = require('express');
 var mark_service = require('../services/mark/mark_service');
 var push_service = require('../services/push/push_service');
+var cloudinary = require('cloudinary');
 
 var router = express.Router();
+
+cloudinary.config({ 
+  cloud_name: 'ricardo-faria', 
+  api_key: '694593793983267', 
+  api_secret: '-XJ-XNtAy0CjJIJUXMMg32JZa9s' 
+});
 
 router.get('/', function(req, res){
     var callback = function(response){
@@ -13,7 +20,9 @@ router.get('/', function(req, res){
 
 
 router.post('/', function(req,res){
-     var callback = function(confirm){
+    var urlImg;
+
+    var callback = function(confirm){
        if(confirm){
             res.status(200).json({
                 message: 'mark added with success',
@@ -29,7 +38,30 @@ router.post('/', function(req,res){
             });
         }
     };
-    mark_service.addMark(req.body, callback);   
+
+
+    cloudinary.uploader.upload(req.body.picture, function(result) { 
+        console.log('url to image: ' + result.url);   
+        urlImg = result.url;     
+    }).then(function(){
+        mark_service.addMark(req.body, urlImg, callback);
+    });
+     
+
+    // //upload the image and after save the case
+    // uploadImg(req.body.picture).then(function(urlImg){
+    //     mark_service.addMark(req.body, urlImg, callback);
+    // });
+       
 });
+
+// var uploadImg = function(picture){
+//     cloudinary.uploader.upload(picture, function(result) { 
+//         console.log(result);
+//         console.log(result.url);
+        
+//     });
+//     return result.url;
+// }
 
 module.exports = router;

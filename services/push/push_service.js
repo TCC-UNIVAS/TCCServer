@@ -18,9 +18,10 @@ var push = function(lat, lng, user) {
                    
         console.log(rows.length + ' registros retornados');       
         
+        console.log('user\'s tokens');
         for(var i = 0; i < rows.length; i++){
-                 //var row = rowJson[i];
-                 console.log(rows[i].token );
+                 //var row = rowJson[i];                 
+                 console.log(rows[i].token + '\n' );
                  device_tokens.push(rows[i].token);
         }
     });
@@ -41,7 +42,7 @@ var push = function(lat, lng, user) {
     //get back all tokens and push to multiple devices
 
     sender.send(message, device_tokens, retry_times, function (result) {
-        console.log('push sent to: ' + device_tokens);
+        //console.log('push sent to: ' + device_tokens);
         device_tokens = [];
         
     }, function (err) {
