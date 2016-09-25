@@ -4,19 +4,19 @@ var push_service = require('../services/push/push_service');
 
 var router = express.Router();
 
-router.get('/', function(req, res){
-    var callback = function(response){
-        res.status(200).send(response);
-    };
-    mark_service.getAll(callback);
-});
-
-router.get('/user/', function(req, res) {
+router.get('/user', function(req, res) {
     var userId = req.query.userId;
     var callback = function(response) {
         res.status(200).send(response);
     };
     mark_service.getByUserId(userId, callback);
+});
+
+router.get('/', function(req, res){
+    var callback = function(response){
+        res.status(200).send(response);
+    };
+    mark_service.getAll(callback);
 });
 
 router.post('/', function(req,res){
