@@ -11,6 +11,13 @@ router.get('/', function(req, res){
     mark_service.getAll(callback);
 });
 
+router.get('/user/', function(req, res) {
+    var userId = req.query.userId;
+    var callback = function(response) {
+        res.status(200).send(response);
+    };
+    mark_service.getByUserId(userId, callback);
+});
 
 router.post('/', function(req,res){
      var callback = function(confirm){
@@ -19,7 +26,7 @@ router.post('/', function(req,res){
                 message: 'mark added with success',
                 status: 200
             });
-            //after add a mark, send  a push notification to user that live around to 800 meters the mark 
+            //after add a mark, send  a push notification to user that live around to 800 meters the mark
             push_service.push(req.body.lat, req.body.lng, req.body.user_id);
         }
         else{
@@ -29,7 +36,7 @@ router.post('/', function(req,res){
             });
         }
     };
-    mark_service.addMark(req.body, callback);   
+    mark_service.addMark(req.body, callback);
 });
 
 module.exports = router;
