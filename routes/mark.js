@@ -53,23 +53,9 @@ router.post('/', function(req,res){
         urlImg = result.url;     
     }).then(function(){
         mark_service.addMark(req.body, urlImg, callback);
-    });
-     
-
-    // //upload the image and after save the case
-    // uploadImg(req.body.picture).then(function(urlImg){
-    //     mark_service.addMark(req.body, urlImg, callback);
-    // });
+    });     
        
 });
 
-// var uploadImg = function(picture){
-//     cloudinary.uploader.upload(picture, function(result) { 
-//         console.log(result);
-//         console.log(result.url);
-        
-//     });
-//     return result.url;
-// }
 
 module.exports = router;

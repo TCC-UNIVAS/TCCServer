@@ -1,10 +1,8 @@
 var gcm = require('node-gcm');
 var db = require('../../util/db_conn'); 
 
-var gcmApiKey = 'AIzaSyDakLMlJip8_loQIUt-XnEq6kq5xQ-gYNk'; // GCM API KEY OF YOUR GOOGLE CONSOLE PROJECT
+var gcmApiKey = 'AIzaSyDakLMlJip8_loQIUt-XnEq6kq5xQ-gYNk'; // GCM API KEY OF GOOGLE CONSOLE PROJECT
 var device_tokens = [];
-//device_tokens.push("c681jp-GCyU:APA91bHAYfg5pWVKHwKM7iaeaA9epfMwGMxE5LhnukF2SDh3gXNw6AUd1naVOnwvUHChMQQXRGFrsegckFOCiQq0RzUfjOju2Qvh4mqygsU9Q37uGYLmDXbGIoebUfZndcBxC5RTHM0j");
-
 
 //send push message to all devices
 var push = function(lat, lng, user) {
