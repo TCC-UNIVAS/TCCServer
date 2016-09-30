@@ -29,7 +29,6 @@ var push = function(lat, lng, user) {
     var message = new gcm.Message(); //create a new message
     message.addData('title', 'Novo caso registrado');
     message.addData('message', 'Um novo caso foi registrado proximo a sua residencia ');
-    message.addData('image', 'https://d30y9cdsu7xlg0.cloudfront.net/png/340906-200.png');
     message.addData('sound', 'default');
     message.collapseKey = 'Testing Push'; //grouping messages
     message.delayWhileIdle = true; //delay sending while receiving device is offline
