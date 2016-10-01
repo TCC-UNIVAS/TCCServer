@@ -30,6 +30,9 @@ var push = function(lat, lng, user) {
     message.addData('title', 'Novo caso registrado');
     message.addData('message', 'Um novo caso foi registrado proximo a sua residencia ');
     message.addData('sound', 'default');
+    message.addData('actions', [
+        { "icon": "emailGuests", "title": "VISUALIZAR", "callback": "app.openCloseCases", "foreground": false, "inline": true},
+    ]);
     message.collapseKey = 'Testing Push'; //grouping messages
     message.delayWhileIdle = true; //delay sending while receiving device is offline
     message.timeToLive = 999999; //number of seconds to keep the message on server if the device is offline
