@@ -4,12 +4,6 @@ var db = require('../../util/db_conn');
 var getCasesFromLastWeekByUserId = function(lat, lng, userId, callback) {
     db.query('SELECT ' +
             'c.*, DATE_FORMAT(c.create_date,"%d %b %Y %T:%f") AS formated_date' +
-        	', case c.category_id' +
-                'when 1 then "Suspeita de focos do mosquito Aedes aegypti" ' +
-                'when 2 then "Suspeita de Dengue" ' +
-        		'when 3 then "Suspeita de Zica" ' +
-        		'when 4 then "Supeita de Chikungunya" ' +
-            'end AS category_description' +
         	', ct.name AS category_name' +
             'FROM cases c ' +
             'JOIN category ct ON c.category_id = ct.category_id ' +
