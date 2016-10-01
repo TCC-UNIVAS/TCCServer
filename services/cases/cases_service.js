@@ -3,7 +3,7 @@ var db = require('../../util/db_conn');
 
 var getCasesFromLastWeekByUserId = function(lat, lng, userId, callback) {
     db.query('SELECT ' +
-            'c.*, DATE_FORMAT(c.create_date,"%d %b %Y %T:%f") AS formated_date' +
+            'c.*' +
         	', ct.name AS category_name' +
             'FROM cases c ' +
             'JOIN category ct ON c.category_id = ct.category_id ' +
