@@ -2,7 +2,7 @@ var gcm = require('node-gcm');
 var db = require('../../util/db_conn');
 
 var getCasesFromLastWeekByUserId = function(lat, lng, userId, callback) {
-    db.query('SELECT * ' +
+    db.query('SELECT c.*, DATE_FORMAT(c.create_date,"%d %b %Y %T:%f") AS formated_date' +
             'FROM cases c ' +
             'WHERE ((( ACOS( COS( ( 90 - ? ) * PI() / 180 ) * ' +
             		'COS( ( 90 - c.lat ) * PI() / 180 ) + SIN( ( 90 - ? ) * PI() / 180 ) * SIN( ( 90 - c.lat ) * ' +
