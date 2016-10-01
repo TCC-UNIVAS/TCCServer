@@ -4,7 +4,7 @@ var db = require('../../util/db_conn');
 var getCasesFromLastWeekByUserId = function(lat, lng, userId, callback) {
     db.query('SELECT ' +
             'c.case_id, c.user_id, c.category_id, c.lat, c.lng' +
-        	', c.comments, DATE_FORMAT(c.create_date,'%d %b %Y %T:%f')' +
+        	', c.comments, DATE_FORMAT(c.create_date, "%d %b %Y %T:%f")' +
         	', c.image, c.address, c.neighborhood' +
         	', case c.category_id' +
                 'when 1 then "Suspeita de focos do mosquito Aedes aegypti" ' +
