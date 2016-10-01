@@ -8,7 +8,12 @@ router.get('/lastWeek', function(req, res) {
     var lng = req.query.lng;
     var userId = req.query.userId;
     var callback = function(response) {
-        response['ok'] = 'Daniiii';
+      var others = { ok: "dani1", ok2: "Dani2" };
+      var json = JSON.stringify({
+        dani: others
+    });
+    response.end(json);
+
         res.status(200).send(response);
     };
     cases_service.getCasesFromLastWeekByUserId(lat, lng, userId, callback);
