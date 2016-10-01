@@ -10,7 +10,7 @@ var push = function(lat, lng, user) {
      db.query('SELECT user.user_id, user.token FROM user  WHERE ((( ACOS( COS( ( 90 - ? ) * PI() / 180 ) * ' +
      'COS( ( 90 - user.lat ) * PI() / 180 ) + SIN( ( 90 - ? ) * PI() / 180 ) * SIN( ( 90 - user.lat ) * ' +
       'PI() / 180 ) * COS( ABS( ( ( 360 + ? ) * PI() / 180 ) - ( ( 360 + user.lng ) * PI() / 180 ) ) ) ) ) * ' +
-      '6371.004 ) * 1000) < 800 and ? != user.user_id;', [lat, lat, lng, user], function(err, rows){
+      '6371.004 ) * 1000) <= 800 and ? != user.user_id;', [lat, lat, lng, user], function(err, rows){
         if (err)
             throw err;
 
