@@ -1,8 +1,10 @@
 var db = require('../../util/db_conn');
 
 var getAll = function(callback){
-    db.query('SELECT cases.*, category.name FROM cases JOIN category ON cases.category_id = category.category_id ' +
+   db.query('SELECT cases.*, category.name FROM cases JOIN category ON cases.category_id = category.category_id ' +
         'ORDER BY cases.case_id  DESC', function(err, rows, fields){
+    //db.query('SELECT cases.category_id, cases.create_date, cases.lat, cases.lng, cases.address, cases.image, category.name ' +
+      //      'from cases join category on cases.category_id = category.category_id', function(err, rows, fields){            
            if (err)
                 throw err;
             else
