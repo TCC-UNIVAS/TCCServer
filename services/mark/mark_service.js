@@ -2,9 +2,7 @@ var db = require('../../util/db_conn');
 
 var getAll = function(callback){
    db.query('SELECT cases.*, category.name FROM cases JOIN category ON cases.category_id = category.category_id ' +
-        'ORDER BY cases.case_id  DESC', function(err, rows, fields){
-    //db.query('SELECT cases.category_id, cases.create_date, cases.lat, cases.lng, cases.address, cases.image, category.name ' +
-      //      'from cases join category on cases.category_id = category.category_id', function(err, rows, fields){            
+        'ORDER BY cases.case_id  DESC', function(err, rows, fields){          
            if (err)
                 throw err;
             else
@@ -13,11 +11,17 @@ var getAll = function(callback){
 };
 
 var getByUserId = function(userId, callback){
-    db.query('SELECT cases.*, category.name FROM cases JOIN category ON cases.category_id = category.category_id ' +
+    // db.query('SELECT cases.*, category.name FROM cases JOIN category ON cases.category_id = category.category_id ' +
+    //     'WHERE user_id = ? ORDER BY cases.case_id  DESC', [userId], function(err, rows, fields) {
+     db.query('SELECT cases.case_id, cases.user_id, cases.category_id, cases.lat, cases.lng, cases.comments, ' +
+     'cases.image, cases.address, cases.neighborhood,  DATE_FORMAT(create_date, \'%d/%m/%Y  %H:%i\') as create_date, ' + 
+     'category.name FROM cases JOIN category ON cases.category_id = category.category_id '+
         'WHERE user_id = ? ORDER BY cases.case_id  DESC', [userId], function(err, rows, fields) {
            if (err) {
             throw err;
            } else {
+               console.log(rows);
+               console.log(rows[0].create_date);
             callback(rows);
            }
     });
