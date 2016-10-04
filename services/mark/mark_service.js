@@ -13,10 +13,12 @@ var getAll = function(callback){
 var getByUserId = function(userId, callback){
     // db.query('SELECT cases.*, category.name FROM cases JOIN category ON cases.category_id = category.category_id ' +
     //     'WHERE user_id = ? ORDER BY cases.case_id  DESC', [userId], function(err, rows, fields) {
-     db.query('SELECT cases.case_id, cases.user_id, cases.category_id, cases.lat, cases.lng, cases.comments, ' +
-     'cases.image, cases.address, cases.neighborhood,  DATE_FORMAT(create_date, "%d/%m/%Y  %H:%i") as create_date, ' +
-     'category.name FROM cases JOIN category ON cases.category_id = category.category_id '+
-        'WHERE user_id = ? ORDER BY cases.case_id  DESC;', [userId], function(err, rows, fields) {
+    //  db.query('SELECT cases.case_id, cases.user_id, cases.category_id, cases.lat, cases.lng, cases.comments, ' +
+    //  'cases.image, cases.address, cases.neighborhood,  DATE_FORMAT(create_date, "%d/%m/%Y  %H:%i") as create_date, ' +
+    //  'category.name FROM cases JOIN category ON cases.category_id = category.category_id '+
+    //     'WHERE user_id = ? ORDER BY cases.case_id  DESC;', [userId], function(err, rows, fields) {
+    db.query('SELECT cases.*, category.name FROM cases JOIN category ON cases.category_id = category.category_id '+
+       'WHERE user_id = ? ORDER BY cases.case_id  DESC;', [userId], function(err, rows, fields) {
            if (err) {
             throw err;
            } else {
