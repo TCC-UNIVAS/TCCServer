@@ -5,41 +5,45 @@ var cloudinary = require('cloudinary');
 
 var router = express.Router();
 
-cloudinary.config({ 
-  cloud_name: 'ricardo-faria', 
-  api_key: '694593793983267', 
-  api_secret: '-XJ-XNtAy0CjJIJUXMMg32JZa9s' 
+cloudinary.config({
+    cloud_name: 'ricardo-faria',
+    api_key: '694593793983267',
+    api_secret: '-XJ-XNtAy0CjJIJUXMMg32JZa9s'
 });
 
-router.get('/user', function(req, res) {
+router.get('/user', function (req, res) {
     var userId = req.query.userId;
-    var callback = function(response) {
+    var callback = function (response) {
         res.status(200).send(response);
     };
     mark_service.getByUserId(userId, callback);
 });
 
 
-router.get('/', function(req, res){
-    var callback = function(response){
+router.get('/', function (req, res) {
+    var callback = function (response) {
         res.status(200).send(response);
     };
     mark_service.getAll(callback);
 });
 
-router.post('/', function(req,res){
+router.post('/', function (req, res) {
     var urlImg;
 
-    var callback = function(confirm){
-       if(confirm){
+    var callback = function (confirm, caseId) {
+        if (confirm) {
             res.status(200).json({
                 message: 'mark added with success',
                 status: 200
             });
-            //after add a mark, send  a push notification to user that live around to 800 meters the mark
-            push_service.push(req.body.lat, req.body.lng, req.body.user_id);
+
+            //get the details case to show show it to user, and after send the push
+           // var caseDetail = mark_service.getById(caseId).then((caseDetail) => {
+                //after add a mark, send  a push notification to user that live around to 800 meters the mark
+                push_service.push(req.body.lat, req.body.lng, caseId, req.body.user_id);
+           // });
         }
-        else{
+        else {
             res.status(400).json({
                 message: 'An error occour when added the mark, try later',
                 status: 400
@@ -48,13 +52,13 @@ router.post('/', function(req,res){
     };
 
 
-    cloudinary.uploader.upload(req.body.picture, function(result) { 
-        console.log('url to image: ' + result.url);   
-        urlImg = result.url;     
-    }).then(function(){
+    cloudinary.uploader.upload(req.body.picture, function (result) {
+        console.log('url to image: ' + result.url);
+        urlImg = result.url;
+    }).then(function () {
         mark_service.addMark(req.body, urlImg, callback);
-    });     
-       
+    });
+
 });
 
 

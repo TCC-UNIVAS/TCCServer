@@ -19,7 +19,6 @@
     "cloudinary": "^1.4.3",
     "express": "^4.14.0",
     "mysql": "^2.11.1",
-    "node-gcm": "^0.14.4",
-    "plotly": "^1.0.6"
+    "node-gcm": "^0.14.4"
   }
 }
