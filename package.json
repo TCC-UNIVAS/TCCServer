@@ -6,6 +6,7 @@
   "scripts": {
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
     "debug": "concurrently  \"node-inspector --web-port=8090\" \"mocha test\test.js --debug-brk\"",
+    "start": "node server.js",
     "test": "mocha test\\test.js --timeout 5000 --reporter mochawesome --reporter-options reportDir=TestReport,reportName=TestTCCServer,reportTitle=TestTCCServer,inlineAssets=true"
   },
   "repository": {
