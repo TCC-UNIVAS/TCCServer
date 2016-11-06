@@ -5,7 +5,7 @@ var db = require('../../util/db_conn');
     db.query('SELECT * from tcc.user', function(err, rows, fields) {
         if (err) throw err;
         
-        console.log('rows  ' + rows);
+      
         sendResponse(rows);
     });
 };
@@ -51,8 +51,19 @@ var addToken = function (email, token, callback){
 };
 
 
+var deleteUser = function (email, callback){
+    db.query('delete from user where email = ?', [email], function(err, result){
+        if (err)
+            throw err;
+        if(result.affectedRows)
+            callback(true);
+        else        
+            callback(false);
+    });
+};
+
 module.exports.getAll = getAll;
 module.exports.addUser = addUser;
 module.exports.auth = auth;
 module.exports.addToken = addToken;
-
+module.exports.deleteUser = deleteUser;

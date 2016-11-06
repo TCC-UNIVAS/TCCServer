@@ -11,6 +11,7 @@ cloudinary.config({
     api_secret: '-XJ-XNtAy0CjJIJUXMMg32JZa9s'
 });
 
+//get marker by user
 router.get('/user', function (req, res) {
     var userId = req.query.userId;
     var callback = function (response) {
@@ -19,7 +20,7 @@ router.get('/user', function (req, res) {
     mark_service.getByUserId(userId, callback);
 });
 
-
+//get all marks
 router.get('/', function (req, res) {
     var callback = function (response) {
         res.status(200).send(response);
@@ -27,6 +28,8 @@ router.get('/', function (req, res) {
     mark_service.getAll(callback);
 });
 
+
+//add a new mark
 router.post('/', function (req, res) {
     var urlImg;
 

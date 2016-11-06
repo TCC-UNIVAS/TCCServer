@@ -1,4 +1,3 @@
-var gcm = require('node-gcm');
 var db = require('../../util/db_conn');
 
 var getCasesFromLastWeekByUserId = function(lat, lng, userId, callback) {

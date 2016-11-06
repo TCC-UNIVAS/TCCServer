@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "debug": "concurrently  \"node-inspector --web-port=8090\" \"mocha test\test.js --debug-brk\"",
+    "test": "mocha test\\test.js --timeout 5000 --reporter mochawesome --reporter-options reportDir=TestReport,reportName=TestTCCServer,reportTitle=TestTCCServer,inlineAssets=true"
   },
   "repository": {
     "type": "git",
@@ -20,5 +21,12 @@
     "express": "^4.14.0",
     "mysql": "^2.11.1",
     "node-gcm": "^0.14.4"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "mochawesome": "^1.5.3",
+    "request": "^2.78.0"
   }
 }
