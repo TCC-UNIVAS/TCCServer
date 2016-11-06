@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for TCC SERVER\services\push\push_service.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../../index.html">all files</a> / <a href="index.html">TCC SERVER/services/push/</a> push_service.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.66% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>26/29</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>4/5</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">89.66% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>26/29</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var gcm = require('node-gcm');
+var mark_service = require('../mark/mark_service');
+var db = require('../../util/db_conn');
+&nbsp;
+var gcmApiKey = 'AIzaSyDakLMlJip8_loQIUt-XnEq6kq5xQ-gYNk'; // GCM API KEY OF GOOGLE CONSOLE PROJECT
+var device_tokens = [];
+&nbsp;
+//send push message to all devices
+var push = function (lat, lng, caseId, user) {
+    //db.query('call distance(?,?,?)',[lat,lng,user], function(err, rows){
+    db.query('SELECT user.user_id, user.token FROM user  WHERE ((( ACOS( COS( ( 90 - ? ) * PI() / 180 ) * ' +
+        'COS( ( 90 - user.lat ) * PI() / 180 ) + SIN( ( 90 - ? ) * PI() / 180 ) * SIN( ( 90 - user.lat ) * ' +
+        'PI() / 180 ) * COS( ABS( ( ( 360 + ? ) * PI() / 180 ) - ( ( 360 + user.lng ) * PI() / 180 ) ) ) ) ) * ' +
+        '6371.004 ) * 1000) &lt;= 800 and ? != user.user_id;', [lat, lat, lng, user], function (err, rows) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err)
+<span class="cstat-no" title="statement not covered" >                throw err;</span>
+&nbsp;
+            //console.log(rows.length + ' registros retornados');
+&nbsp;
+           // console.log('user\'s tokens');
+            for (var i = 0; i &lt; rows.length; i++) {
+                //var row = rowJson[i];
+                console.log(rows[i].token + '\n');
+                device_tokens.push(rows[i].token);
+            }
+            mark_service.getById(caseId, sendPush);
+        });
+};
+&nbsp;
+&nbsp;
+var sendPush = function (caseDetail) {
+    var retry_times = 4; //the number of times to retry sending the message if it fails
+    var sender = new gcm.Sender(gcmApiKey); //create a new sender
+    var message = new gcm.Message(); //create a new message
+    message.addData('title', 'Novo caso registrado');
+    message.addData('message', 'Deseja visualizar mais informações sobre este novo caso próxima a sua residência?');
+    message.addData('sound', 'default');
+    message.addData('case', JSON.stringify(caseDetail));
+   // console.log(JSON.stringify(caseDetail) + '\n\n\n');
+  //  console.log(message);
+    // message.addData('actions', [
+    //     { "icon": "emailGuests", "title": "VISUALIZAR", "callback": "app.openCloseCases", "foreground": false, "inline": true},
+    // ]);
+    message.collapseKey = 'Testing Push'; //grouping messages
+    message.delayWhileIdle = true; //delay sending while receiving device is offline
+    message.timeToLive = 999999; //number of seconds to keep the message on server if the device is offline
+&nbsp;
+    //Take the registration id(lengthy string) that you logged
+    //in your ionic v2 app and update device_tokens[0] with it for testing.
+    //Later save device tokens to db and
+    //get back all tokens and push to multiple devices
+&nbsp;
+    sender.send(message, device_tokens, retry_times, function (result) {
+        //console.log('push sent to: ' + device_tokens);
+        device_tokens = [];
+&nbsp;
+    }, <span class="fstat-no" title="function not covered" >function (err) {</span>
+<span class="cstat-no" title="statement not covered" >        console.log('failed to push notification ');</span>
+<span class="cstat-no" title="statement not covered" >        device_tokens = [];</span>
+    });
+&nbsp;
+};
+&nbsp;
+module.exports.push = push;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Nov 06 2016 14:40:21 GMT-0200 (Horário brasileiro de verão)
+</div>
+</div>
+<script src="../../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../../sorter.js"></script>
+</body>
+</html>

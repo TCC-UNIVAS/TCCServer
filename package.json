@@ -1,0 +1,33 @@
+{
+  "name": "tcc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha -- -R spec",
+    "debug": "concurrently  \"node-inspector --web-port=8090\" \"mocha test\test.js --debug-brk\"",
+    "start": "node server.js",
+    "test": "mocha test\\test.js --timeout 10000 --reporter mochawesome --reporter-options reportDir=TestReport,reportName=TestTCCServer,reportTitle=TestTCCServer,inlineAssets=true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://57ba54817628e1dce200010f@tcc-tccunivas.rhcloud.com/~/git/tcc.git/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cloud-env": "^0.2.2",
+    "cloudinary": "^1.4.3",
+    "express": "^4.14.0",
+    "mysql": "^2.11.1",
+    "node-gcm": "^0.14.4"
+  },
+  "devDependencies": {
+    "concurrently": "^3.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.1.2",
+    "mochawesome": "^1.5.3",
+    "request": "^2.78.0"
+  }
+}
