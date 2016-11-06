@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>3/7</span>
+        <span class='fraction'>6/7</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>1/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>2/2</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">42.86% </span>
+        <span class="strong">85.71% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/7</span>
+        <span class='fraction'>6/7</span>
       </div>
     </div>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -69,21 +69,21 @@
 24</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -91,8 +91,8 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var db = require('../../util/db_conn');
 &nbsp;
-var getCasesFromLastWeekByUserId = <span class="fstat-no" title="function not covered" >function(lat, lng, userId, callback) {</span>
-<span class="cstat-no" title="statement not covered" >    db.query('SELECT c.case_id, c.user_id, c.category_id, c.lat, c.lng, c.comments, ' +</span>
+var getCasesFromLastWeekByUserId = function(lat, lng, userId, callback) {
+    db.query('SELECT c.case_id, c.user_id, c.category_id, c.lat, c.lng, c.comments, ' +
             'c.image, c.address, c.neighborhood,  DATE_FORMAT(c.create_date, \'%d/%m/%Y  %H:%i\') as create_date ' +
             'FROM cases c ' +
             'WHERE ((( ACOS( COS( ( 90 - ? ) * PI() / 180 ) * ' +
@@ -102,11 +102,11 @@ var getCasesFromLastWeekByUserId = <span class="fstat-no" title="function not co
             	  ') &lt;= 800 ' +
             'AND c.user_id != ? ' +
             'AND c.create_date &gt;= DATE(NOW()) - INTERVAL 7 DAY ' +
-            'ORDER BY c.case_id DESC;', [lat, lat, lng, userId], <span class="fstat-no" title="function not covered" >function(err, rows, fields) {</span>
-<span class="cstat-no" title="statement not covered" >            if (err) {</span>
+            'ORDER BY c.case_id DESC;', [lat, lat, lng, userId], function(err, rows, fields) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
 <span class="cstat-no" title="statement not covered" >                throw err;</span>
             } else {
-<span class="cstat-no" title="statement not covered" >               callback(rows);</span>
+               callback(rows);
             }
     });
 };
@@ -118,7 +118,7 @@ module.exports.getCasesFromLastWeekByUserId = getCasesFromLastWeekByUserId;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Nov 05 2016 23:08:03 GMT-0200 (Horário brasileiro de verão)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Nov 06 2016 14:40:21 GMT-0200 (Horário brasileiro de verão)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

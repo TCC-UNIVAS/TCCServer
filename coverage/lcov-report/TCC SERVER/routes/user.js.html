@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">62.86% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>22/35</span>
+        <span class='fraction'>28/35</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">16.67% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>1/6</span>
+        <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">54.55% </span>
+        <span class="strong">72.73% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>6/11</span>
+        <span class='fraction'>8/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">62.86% </span>
+        <span class="strong">80% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>22/35</span>
+        <span class='fraction'>28/35</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -133,7 +133,8 @@
 88
 89
 90
-91</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
+91
+92</td><td class="line-coverage quiet"><span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,24 +157,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -205,20 +205,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -245,11 +247,10 @@ router.get('/', function (req, res) {
 });
 &nbsp;
 // add a user token in a db
-router.post('/token', <span class="fstat-no" title="function not covered" >function (req, res) {</span>
-    //callback function
-<span class="cstat-no" title="statement not covered" >    var sendData = <span class="fstat-no" title="function not covered" >function (confirm) {</span></span>
-<span class="cstat-no" title="statement not covered" >        if (confirm) {</span>
-<span class="cstat-no" title="statement not covered" >            res.status(200).json({</span>
+router.post('/token', function (req, res) {
+    var sendData = function (confirm) {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (confirm) {
+            res.status(200).json({
                 message: 'token registred with success',
                 status: 200
             });
@@ -262,8 +263,8 @@ router.post('/token', <span class="fstat-no" title="function not covered" >funct
         }
     }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >    console.log(req.body.email + '  ' + req.body.token);</span>
-<span class="cstat-no" title="statement not covered" >    user_service.addToken(req.body.email, req.body.token, sendData);</span>
+    console.log(req.body.email + '  ' + req.body.token);
+    user_service.addToken(req.body.email, req.body.token, sendData);
 });
 &nbsp;
 //get a 'user' json with data to insert in db
@@ -297,13 +298,15 @@ router.post('/auth', <span class="fstat-no" title="function not covered" >functi
 router.delete('/', function (req, res) {
     var email = req.body.email;
     var callback = function (response) {
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (response){
+        if (response){
             res.status(200).json({
                 message: 'user deleted'
             });
+&nbsp;
+&nbsp;
         }
         else{
-<span class="cstat-no" title="statement not covered" >            res.status(400).json({</span>
+            res.status(400).json({
                 message: 'user not found'
             });
         }
@@ -319,7 +322,7 @@ module.exports = router;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Nov 05 2016 23:08:03 GMT-0200 (Horário brasileiro de verão)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Nov 06 2016 14:40:21 GMT-0200 (Horário brasileiro de verão)
 </div>
 </div>
 <script src="../../prettify.js"></script>

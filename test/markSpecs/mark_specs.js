@@ -4,6 +4,7 @@ var request = require("request"),
     base_url = "http://localhost:80/mark";
 
 
+//get all markers
 describe("Get all markers", function () {
     it("returns the correct JSON structure ", function (done) {
         request.get(base_url, function (error, response, body) {
@@ -60,16 +61,20 @@ describe("Add markers", function () {
 
 
 //get marker by user
-describe("Add markers", function () {
-    it("Should add a new marker", function (done) {
-        request.post(base_url,
-            {
-                json: {
-                    "user_id": 2,
-                }
-            },
-            function (err, res) {               
+describe("Get markers by user", function () {
+    it("Should get markers by user", function (done) {
+        var url = base_url + '/user?user_id=2';
+        request.get(url ,function (err, res) {               
                 assert.ok(200, res.statusCode);
+                done();
+            });
+    });
+
+    //will not get markers from a user that doesn't exist
+    it("Shouldn't get markers by user that doesn't exist", function (done) {
+        var url = base_url + '/user?user_id=23216549';
+        request.get(url ,function (err, res) {               
+                assert.ok(400, res.statusCode);
                 done();
             });
     });

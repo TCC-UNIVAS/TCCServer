@@ -56,7 +56,7 @@ router.post('/', function (req, res) {
 
 
     cloudinary.uploader.upload(req.body.picture, function (result) {
-        console.log('url to image: ' + result.url);
+        //console.log('url to image: ' + result.url);
         urlImg = result.url;
     }).then(function () {
         mark_service.addMark(req.body, urlImg, callback);

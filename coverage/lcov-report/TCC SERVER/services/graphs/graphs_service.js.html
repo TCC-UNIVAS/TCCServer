@@ -20,28 +20,28 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">87.5% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/8</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>0/2</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>0/2</span>
+        <span class='fraction'>7/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>1/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>2/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">87.5% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/8</span>
+        <span class='fraction'>7/8</span>
       </div>
     </div>
   </div>
-  <div class='status-line medium'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet">1
 2
@@ -70,20 +70,20 @@
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -92,8 +92,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">var gcm = require('node-gcm');
 var db = require('../../util/db_conn');
 &nbsp;
-var getByNeighborhood = <span class="fstat-no" title="function not covered" >function (callback) {</span>
-<span class="cstat-no" title="statement not covered" >    db.query('SELECT cases.neighborhood,  ' +</span>
+var getByNeighborhood = function (callback) {
+    db.query('SELECT cases.neighborhood,  ' +
             'COUNT(case cases.category_id when 1 then 1 else null end) as foco, ' +
             'COUNT(case cases.category_id when 2 then 1 else null end) as dengue, ' +
             'COUNT(case cases.category_id when 3 then 1 else null end) as zika, ' +
@@ -102,11 +102,11 @@ var getByNeighborhood = <span class="fstat-no" title="function not covered" >fun
             'INNER JOIN category ' +
             'ON cases.category_id = category.category_id ' +
             'GROUP BY cases.neighborhood ' +
-            'order by cases.neighborhood'  , <span class="fstat-no" title="function not covered" >function (err, rows, fields) {</span>
-<span class="cstat-no" title="statement not covered" >            if (err) {</span>
+            'order by cases.neighborhood'  , function (err, rows, fields) {
+            <span class="missing-if-branch" title="if path not taken" >I</span>if (err) {
 <span class="cstat-no" title="statement not covered" >                throw err;</span>
             } else {
-<span class="cstat-no" title="statement not covered" >                callback(rows);</span>
+                callback(rows);
             }
         });
 };
@@ -118,7 +118,7 @@ module.exports.getByNeighborhood = getByNeighborhood;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Nov 05 2016 23:08:03 GMT-0200 (Horário brasileiro de verão)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Nov 06 2016 14:40:21 GMT-0200 (Horário brasileiro de verão)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

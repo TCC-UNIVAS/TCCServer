@@ -18,7 +18,7 @@ var getByUserId = function (userId, callback) {
             if (err) {
                 throw err;
             } else {
-                console.log(rows);
+                //console.log(rows);
                 callback(rows);
             }
         });
@@ -30,7 +30,7 @@ var addMark = function (data, urlImg, callback) {
             if (err)
                 throw err;
             if (result.affectedRows){
-                console.log(result.insertId);
+               // console.log(result.insertId);
                 callback(true, result.insertId);
             }
             else

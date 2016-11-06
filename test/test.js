@@ -27,6 +27,7 @@ function importTest(name, path) {
     //importing tests
     importTest("Test User API", './userSpecs/user_specs');
     importTest("Test Mark API", './markSpecs/mark_specs');
-    
+    importTest("Test Case API", './caseSpecs/case_specs');
+    importTest("Test Graphs API", './graphsSpecs/graphs_specs');    
 });
 

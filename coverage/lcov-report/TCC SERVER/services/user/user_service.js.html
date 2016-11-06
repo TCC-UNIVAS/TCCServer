@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">65.79% </span>
+        <span class="strong">78.95% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>25/38</span>
+        <span class='fraction'>30/38</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">35.71% </span>
+        <span class="strong">57.14% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>5/14</span>
+        <span class='fraction'>8/14</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">63.64% </span>
+        <span class="strong">81.82% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>7/11</span>
+        <span class='fraction'>9/11</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">67.57% </span>
+        <span class="strong">81.08% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>25/37</span>
+        <span class='fraction'>30/37</span>
       </div>
     </div>
   </div>
@@ -153,12 +153,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,13 +166,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-yes">2×</span>
 <span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,7 +188,7 @@
     db.query('SELECT * from tcc.user', function(err, rows, fields) {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (err) <span class="cstat-no" title="statement not covered" >throw err;</span>
         
-       // console.log('rows  ' + rows);
+      
         sendResponse(rows);
     });
 };
@@ -221,13 +221,13 @@ var auth = <span class="fstat-no" title="function not covered" >function(email, 
 };
 &nbsp;
 //add a token in a user register
-var addToken = <span class="fstat-no" title="function not covered" >function (email, token, callback){</span>
-<span class="cstat-no" title="statement not covered" >    db.query('update user set user.token = ? where user.email = ?', [token, email], <span class="fstat-no" title="function not covered" >function(err, result){</span></span>
+var addToken = function (email, token, callback){
+    db.query('update user set user.token = ? where user.email = ?', [token, email], function(err, result){
         
-<span class="cstat-no" title="statement not covered" >        if (err)</span>
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (err)
 <span class="cstat-no" title="statement not covered" >            throw err;</span>
-<span class="cstat-no" title="statement not covered" >        if(result.affectedRows)</span>
-<span class="cstat-no" title="statement not covered" >            callback(true);</span>
+        <span class="missing-if-branch" title="else path not taken" >E</span>if(result.affectedRows)
+            callback(true);
         else        
 <span class="cstat-no" title="statement not covered" >            callback(false);</span>
     });
@@ -238,10 +238,10 @@ var deleteUser = function (email, callback){
     db.query('delete from user where email = ?', [email], function(err, result){
         <span class="missing-if-branch" title="if path not taken" >I</span>if (err)
 <span class="cstat-no" title="statement not covered" >            throw err;</span>
-        <span class="missing-if-branch" title="else path not taken" >E</span>if(result.affectedRows)
+        if(result.affectedRows)
             callback(true);
         else        
-<span class="cstat-no" title="statement not covered" >            callback(false);</span>
+            callback(false);
     });
 };
 &nbsp;
@@ -256,7 +256,7 @@ module.exports.deleteUser = deleteUser;
 </div><!-- /wrapper -->
 <div class='footer quiet pad2 space-top1 center small'>
   Code coverage
-  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Nov 05 2016 23:08:03 GMT-0200 (Horário brasileiro de verão)
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sun Nov 06 2016 14:40:21 GMT-0200 (Horário brasileiro de verão)
 </div>
 </div>
 <script src="../../../prettify.js"></script>

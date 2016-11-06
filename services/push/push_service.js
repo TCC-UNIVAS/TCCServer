@@ -15,9 +15,9 @@ var push = function (lat, lng, caseId, user) {
             if (err)
                 throw err;
 
-            console.log(rows.length + ' registros retornados');
+            //console.log(rows.length + ' registros retornados');
 
-            console.log('user\'s tokens');
+           // console.log('user\'s tokens');
             for (var i = 0; i < rows.length; i++) {
                 //var row = rowJson[i];
                 console.log(rows[i].token + '\n');
@@ -36,8 +36,8 @@ var sendPush = function (caseDetail) {
     message.addData('message', 'Deseja visualizar mais informações sobre este novo caso próxima a sua residência?');
     message.addData('sound', 'default');
     message.addData('case', JSON.stringify(caseDetail));
-    console.log(JSON.stringify(caseDetail) + '\n\n\n');
-    console.log(message);
+   // console.log(JSON.stringify(caseDetail) + '\n\n\n');
+  //  console.log(message);
     // message.addData('actions', [
     //     { "icon": "emailGuests", "title": "VISUALIZAR", "callback": "app.openCloseCases", "foreground": false, "inline": true},
     // ]);
