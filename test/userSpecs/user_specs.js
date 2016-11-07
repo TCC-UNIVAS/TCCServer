@@ -35,7 +35,7 @@ describe("Add user", function () {
         'name': 'some name',
         'email': 'someemail@domain.com',
         'password': 'password',
-        'lat': -42.934104,
+        'lat': 'a',
         'lng': -22.228512
     }
     it("should add user ", function (done) {
@@ -69,7 +69,7 @@ describe("Add user", function () {
     });
 });
 
-//TODO it's not working yet
+
 describe("Add a token", function () {
     it("Should add a token to an user", function (done) {
         var url = base_url + '/token';
